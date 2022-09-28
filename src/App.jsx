@@ -1,15 +1,6 @@
-import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./components/Home";
-
+import ProyRouter from './components/routes/ProyectRouter'
 function App() {
-  return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </div>
-  );
+  return <ProyRouter />;
 }
-
 export default App;
