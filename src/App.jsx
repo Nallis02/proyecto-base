@@ -1,6 +1,8 @@
 import "./App.css";
-import ProyRouter from './components/routes/ProyectRouter'
+
+import MainRouter from "./routes/MainRouter";
+
 function App() {
-  return <ProyRouter />;
+  return <MainRouter />;
 }
 export default App;
