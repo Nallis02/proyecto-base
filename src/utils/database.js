@@ -1,12 +1,10 @@
-import { setDoc } from "firebase/firestore";
-import { usersDoc } from "../services/firebase";
+import { collection, doc, setDoc } from "firebase/firestore";
+import { db } from "../services/firebase";
 
-export function addUser(name) {
-    //cedulas, correos y celular para los id, no se repiten
-    try {
-        setDoc(usersDoc(name), {name})
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
-}
+// objects Collection
+export const usersCol = collection(db, "users");
+export const productsCol = collection(db, "productos");
 
+// setter function
+export const setData = (col, data) =>
+  setDoc(doc(col, data.id), data, { merge: true });
