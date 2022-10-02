@@ -1,14 +1,12 @@
-import { collection, addDoc } from "firebase/firestore";
+import { setDoc } from "firebase/firestore";
+import { usersDoc } from "../services/firebase";
 
-try {
-  const docRef = await addDoc(collection(db, "users"), {
-    first: "Nallis",
-    last: "Trujillo",
-    born: 1990
-  });
-  console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  console.error("Error adding document: ", e);
+export function addUser(name) {
+    //cedulas, correos y celular para los id, no se repiten
+    try {
+        setDoc(usersDoc(name), {name})
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
 }
-
 
