@@ -8,7 +8,7 @@ export default function Home() {
     <>
     <div>{saludo.nombre}</div>
     <div>
-      <button onClick={()=>addUser('Matias')}>Añadir Usuario</button>
+      <button onClick={()=>addUser('Camila')}>Añadir Usuario</button>
     </div>
     </>
   )
