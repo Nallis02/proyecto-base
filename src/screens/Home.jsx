@@ -1,5 +1,5 @@
 import { AuthContext } from "../context/AuthContext";
-import {  productsCol, setData,  deleteDocument, inventarioCol, docSnap } from "../utils/database";
+import {  productsCol, setData,  deleteDocument, inventarioCol, docSnap, filterData, buscarSnapshot } from "../utils/database";
 
 export default function Home() {
   const { saludo } = AuthContext();
@@ -26,7 +26,8 @@ export default function Home() {
       <button onClick={onClick}>Añadir Usuario</button>
       <button onClick={remove}>Eliminar</button>
       <button onClick={buscarPorId}>Buscar Por Id</button>
-      {/* <button onClick={buscarSnap}>Buscar coleccion Snapshot</button> */}
+      <button onClick={buscarSnapshot}>Buscar coleccion Snapshot </button>
+      <button onClick={filterData}>Filtrar coleccion querySnapshot</button>
       
     </section>
   );

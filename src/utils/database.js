@@ -1,5 +1,5 @@
 // import { query } from "express";
-import { addDoc, collection, deleteDoc, doc, getDoc, onSnapshot, setDoc, query, where,orderBy, limit } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, onSnapshot, setDoc, query, where, getDocs } from "firebase/firestore";
 import { db } from "../services/firebase";
 
 // objects Collection
@@ -27,11 +27,20 @@ export const docSnap = await getDoc(docRef);
 //   onSnapshot(doc(col))
 // };
 
-export const buscarSnapshot = onSnapshot(doc(usersCol, '2'), (doc) => {
-  console.log("Current data: ", doc.data());
-});
+export async function buscarSnapshot() {onSnapshot(doc(usersCol, '2'), (doc) => {
+  console.log( doc.data());
+})}
 // - Leer (filtrar x campo) documentos por colección con query y get
-// const q = query(usersCol, where("name", "==", 'camila'), orderBy("name"));
+export async function filterData() {
+  const result = [];
+  const filter = query(usersCol, where("id", "==", 'Camila2'));
+  const querySnapshot = await getDocs(filter);
+  querySnapshot.forEach((doc) => {
+    const result = { ...doc.data() };
+    console.log(result);
+  });
+  return result;
+}
 
 // - Leer (filtrar x campo) documentos por colección con query y snapshot
 
