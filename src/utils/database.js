@@ -27,7 +27,7 @@ export const docSnap = await getDoc(docRef);
 //   onSnapshot(doc(col))
 // };
 
-export async function buscarSnapshot() {onSnapshot(doc(usersCol, '2'), (doc) => {
+export async function buscarSnapshot() { onSnapshot(doc(usersCol, '2'), (doc) => {
   console.log( doc.data());
 })}
 // - Leer (filtrar x campo) documentos por colección con query y get
